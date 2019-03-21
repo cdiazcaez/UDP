@@ -49,6 +49,22 @@ int main(int argc, char* argv[])
 	short int port;
 	
 	char* endptr;
+	
+	if (argc == 2)
+	{
+		port = strtol(argv[1], &endptr, 0);
+		if (*endptr)
+		{
+			fprintf(stderr, "UDPSERV: Invalid port number.\n");
+			exit(EXIT_FAILURE);
+		}
+	}
+
+	else if (argc < 2) 
+	{
+		port = PORT;
+	}
+	
 
 
 
