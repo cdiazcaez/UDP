@@ -205,6 +205,16 @@ void send_to_active_clients(int sockfd, char *str, int n, int len)
 	{
 		diff_t = difftime(time(NULL), temp->ts);
 		
+		// if given difference is less than 15 sec, the node is an active client
+		if (diff_t < 15.0)
+		{
+			struct sockaddr_in c = temp->addr;
+			sendto(sockfd, (char *)str, n, MSG_CONFIRM, (const struct sockaddr *) &c, len);
+			// printf("Message sent %s", str);
+			temp = temp->next;
+		}
+
+		
 
 
 
