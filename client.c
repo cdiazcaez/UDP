@@ -16,3 +16,9 @@
 #include <stdbool.h>
 
 #define MAXLINE 1024
+
+volatile sig_atomic_t send_flag = false;
+
+// signal handler
+void handle_alarm( int sig );
+
