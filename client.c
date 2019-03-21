@@ -92,4 +92,14 @@ int main(int argc, char* argv[])
     alarm(5);
     
     int status = 1;
+	while (status)
+    {
+        int c;
 
+        set_mode(1);
+        while (!(c = get_key())) 
+        {
+            int n, len;
+            n = recvfrom(sockfd, (char *)buffer, MAXLINE, MSG_WAITALL, (struct sockaddr *) &servaddr,&len);
+            buffer[n] = '\0';
+            if (n > 0) printf("Server: %s", buffer);
