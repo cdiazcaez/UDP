@@ -166,6 +166,20 @@ void insert_at_head(struct sockaddr_in c)
     head = newNode; 
 }
 
+// find the location of node with given socket address
+// Returns NULL if not found, else pointer to that node
+node * find_node(struct sockaddr_in c)
+{
+	if (head == NULL) return head;
+
+	node * current = head;
+	while (current != NULL)
+	{
+		if (sock_cmp(current->addr, c)) return current;
+		current = current->next;
+	}
+	return current;
+}
 
 
 
