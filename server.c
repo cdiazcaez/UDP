@@ -136,6 +136,19 @@ int sock_cmp(struct sockaddr_in a, struct sockaddr_in b)
 	return 0;
 }
 
+// create a new node for the list
+node* getNewNode(struct sockaddr_in c)
+{
+    node *temp_node;
+    temp_node = (node *) malloc(sizeof(node));
+    temp_node->addr=c;
+    time(&(temp_node->ts));
+    temp_node->next=NULL;
+    temp_node->previous=NULL;
+
+    return temp_node;
+}
+
 
 
 
