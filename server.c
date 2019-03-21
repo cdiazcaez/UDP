@@ -95,8 +95,23 @@ int main(int argc, char* argv[])
 		perror("bind failed");
 		exit(EXIT_FAILURE);
 	}
+	
 	// Initialize buffer
 	memset(&buffer, 0, MAXLINE);
+	
+	//Enter an infinite loop to respond	to client requests and echo input
+		
+	while (1)
+	{
+		int len, n;
+		n = recvfrom(sockfd, (char *)buffer, MAXLINE, MSG_WAITALL, ( struct sockaddr *) &cliaddr,&len);
+		buffer[n] = '\0';
+
+		node * temp = find_node(cliaddr);
+		if (temp == NULL) insert_at_head(cliaddr);
+		else time(&(temp->ts));
+		
+		
 
 	
 
