@@ -25,3 +25,33 @@ void handle_alarm( int sig );
 // Helper functions for nonblocking input
 void set_mode(int want_key);
 int get_key();
+
+int main(int argc, char* argv[]) 
+{
+    int sockfd;
+    struct sockaddr_in servaddr, cliaddr;
+    char buffer[MAXLINE];
+    short int port;
+
+    char *remote_address;             
+    char *remote_port;                
+    char *endptr;                
+    
+        // Ensure correct usage
+    if (argc != 3)
+    {
+        printf("usage:\n");
+        printf("\t%s <server ip> <server port>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    remote_address = argv[1];
+    remote_port = argv[2];
+
+    port = strtol(remote_port, &endptr, 0);
+    if ( *endptr ) 
+    {
+        perror("Invalid port supplied");
+        exit(EXIT_FAILURE);
+    }
+
