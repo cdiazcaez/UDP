@@ -200,7 +200,11 @@ void send_to_active_clients(int sockfd, char *str, int n, int len)
 	node * temp = head;
 	double diff_t;
 
-
+	// traverse the list
+	while (temp != NULL)
+	{
+		diff_t = difftime(time(NULL), temp->ts);
+		
 
 
 
