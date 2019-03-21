@@ -22,3 +22,6 @@ volatile sig_atomic_t send_flag = false;
 // signal handler
 void handle_alarm( int sig );
 
+// Helper functions for nonblocking input
+void set_mode(int want_key);
+int get_key();
