@@ -64,6 +64,14 @@ int main(int argc, char* argv[])
 	{
 		port = PORT;
 	}
+		
+	else 
+	{
+		fprintf(stderr, "UDPSERV: Invalid arguments.\n");
+		exit(EXIT_FAILURE);
+	}
+
+
 	
 
 
