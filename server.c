@@ -118,6 +118,13 @@ int main(int argc, char* argv[])
 			printf("KEEP_ALIVE\n");
 			continue;
 		}
+				else
+		{
+			printf("Client : %s", buffer);
+			send_to_active_clients(sockfd, buffer, n, len);
+		}
+	}
+}
 
 
 
