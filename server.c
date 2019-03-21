@@ -181,6 +181,19 @@ node * find_node(struct sockaddr_in c)
 	return current;
 }
 
+// Delete a node from the list pointed by the given node pointer
+void delete_node(node *pos)
+{
+	if (pos == NULL || head == NULL) return;
+	if (pos == head) head = pos->next;
+
+	if (pos->previous != NULL) pos->previous->next = pos->next;
+	if (pos->next != NULL) pos->next->previous = pos->previous;
+	pos->next = NULL;
+	pos->previous = NULL;
+	free(pos);
+}
+
 
 
 
