@@ -132,3 +132,11 @@ int main(int argc, char* argv[])
     return 0;
 }
 
+/* Helper Function Definitions */
+
+void handle_alarm( int sig )
+{
+    send_flag = true;
+}
+
+
