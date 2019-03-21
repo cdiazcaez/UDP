@@ -74,5 +74,14 @@ int main(int argc, char* argv[])
         exit(EXIT_FAILURE);
     }
 
+    // Set read timeout from server to 10 usec
+    struct timeval read_timeout;
+    read_timeout.tv_sec = 0;
+    read_timeout.tv_usec = 10;
+    if ( setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &read_timeout, sizeof read_timeout) < 0)
+    {
+        perror("Error setting socket options");
+    }
+
 
 
