@@ -115,3 +115,9 @@ int main(int argc, char* argv[])
             }
         }
         
+        // if user pressed s/S, prompt for string input.
+        if (c == 83 || c == 115)
+        {
+            printf("Enter string to echo: ");
+            char user_input[MAXLINE];
+            fgets(user_input, MAXLINE-1, stdin);
