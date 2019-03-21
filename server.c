@@ -194,6 +194,11 @@ void delete_node(node *pos)
 	free(pos);
 }
 
+// send the given string to all known active clients
+void send_to_active_clients(int sockfd, char *str, int n, int len)
+{
+	node * temp = head;
+	double diff_t;
 
 
 
