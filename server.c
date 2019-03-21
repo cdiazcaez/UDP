@@ -72,6 +72,11 @@ int main(int argc, char* argv[])
 	}
 
 
+	struct sockaddr_in servaddr, cliaddr;
+	int clients = 0;
+
+
+
 	
 
 
