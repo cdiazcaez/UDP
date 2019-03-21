@@ -33,3 +33,11 @@ void insert_at_head(struct sockaddr_in c);
 node * find_node(struct sockaddr_in c);
 void delete_node(node *pos);
 
+
+// Global variables for our List
+node *head = NULL, *tail = NULL;
+
+// Send given string to all active clients
+void send_to_active_clients(int sockfd, char *str, int n, int len);
+
+
