@@ -128,4 +128,15 @@ int main(int argc, char* argv[])
 
 
 
+/* Helper Function Definitions */
+
+int sock_cmp(struct sockaddr_in a, struct sockaddr_in b)
+{
+	if((a.sin_addr.s_addr == b.sin_addr.s_addr) && (a.sin_port == b.sin_port)) return 1;
+	return 0;
+}
+
+
+
+
 
