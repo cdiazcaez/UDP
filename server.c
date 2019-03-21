@@ -95,6 +95,9 @@ int main(int argc, char* argv[])
 		perror("bind failed");
 		exit(EXIT_FAILURE);
 	}
+	// Initialize buffer
+	memset(&buffer, 0, MAXLINE);
+
 	
 
 
