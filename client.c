@@ -68,5 +68,11 @@ int main(int argc, char* argv[])
         exit(EXIT_FAILURE);
     }
 
+    // Create an unbound socket
+    if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
+        perror("Socket creation failed");
+        exit(EXIT_FAILURE);
+    }
+
 
 
