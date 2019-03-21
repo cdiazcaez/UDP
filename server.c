@@ -40,4 +40,16 @@ node *head = NULL, *tail = NULL;
 // Send given string to all active clients
 void send_to_active_clients(int sockfd, char *str, int n, int len);
 
+/*   -------    */
+
+int main(int argc, char* argv[])
+{
+	int sockfd;
+	char buffer[MAXLINE];
+	short int port;
+	
+	char* endptr;
+
+
+
 
