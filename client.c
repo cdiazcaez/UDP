@@ -103,3 +103,15 @@ int main(int argc, char* argv[])
             n = recvfrom(sockfd, (char *)buffer, MAXLINE, MSG_WAITALL, (struct sockaddr *) &servaddr,&len);
             buffer[n] = '\0';
             if (n > 0) printf("Server: %s", buffer);
+            
+            // send a keep_alive signal every 5 sec
+            if (send_flag)
+            {
+                char *keep_alive = "\n";
+                sendto(sockfd, (const char *)keep_alive, strlen(keep_alive),MSG_CONFIRM, (const struct sockaddr *) &servaddr, sizeof(servaddr));           
+            
+                send_flag = false;
+                alarm(5);
+            }
+        }
+        
