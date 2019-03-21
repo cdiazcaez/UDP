@@ -74,7 +74,13 @@ int main(int argc, char* argv[])
 
 	struct sockaddr_in servaddr, cliaddr;
 	int clients = 0;
-
+	
+	// Create an unbound socket
+	if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) 
+	{
+		perror("socket creation failed");
+		exit(EXIT_FAILURE);
+	}
 
 
 	
