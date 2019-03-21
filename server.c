@@ -112,8 +112,12 @@ int main(int argc, char* argv[])
 		else time(&(temp->ts));
 		
 		
-
-	
+		if (strcmp(buffer, "\n") == 0)
+		{
+			// Test keep_alive signal is receive by the server.
+			printf("KEEP_ALIVE\n");
+			continue;
+		}
 
 
 
