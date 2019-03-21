@@ -83,5 +83,13 @@ int main(int argc, char* argv[])
         perror("Error setting socket options");
     }
 
+    /* print out a selection menu so the user knows whats going on */
+    printf("-- Client Input --\n");
+    printf("s - Echo string to all active clients\n");
+    printf("q - exit\n");
 
+    signal( SIGALRM, handle_alarm ); 
+    alarm(5);
+    
+    int status = 1;
 
