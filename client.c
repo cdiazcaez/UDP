@@ -121,3 +121,14 @@ int main(int argc, char* argv[])
             printf("Enter string to echo: ");
             char user_input[MAXLINE];
             fgets(user_input, MAXLINE-1, stdin);
+             // strcat(user_input, "\n");
+            sendto(sockfd, (const char *)user_input, strlen(user_input),MSG_CONFIRM, (const struct sockaddr *) &servaddr, sizeof(servaddr));
+        }
+         
+        // if user pressed q/Q, quit!
+        else if (c == 81 || c == 113) status = 0;
+    }
+
+    return 0;
+}
+
