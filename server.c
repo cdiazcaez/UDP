@@ -21,3 +21,8 @@ typedef struct node
 	struct node *next;
 	struct node *previous;
 } node;
+
+/* HELPER FUNCTIONS */
+
+// compare two socket address
+int sock_cmp(struct sockaddr_in a, struct sockaddr_in b);
