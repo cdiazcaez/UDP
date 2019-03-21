@@ -214,6 +214,24 @@ void send_to_active_clients(int sockfd, char *str, int n, int len)
 			temp = temp->next;
 		}
 
+		// else delete the node from the list
+		else
+		{
+			// printf("IN DELETE MODE\n");
+			if (temp->next != NULL) 
+			{
+				temp = temp->next;
+				delete_node(temp->previous);
+			}
+			else
+			{
+				delete_node(temp);
+				temp = NULL;
+			}
+		}
+	}
+}
+
 		
 
 
