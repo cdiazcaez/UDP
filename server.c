@@ -149,6 +149,25 @@ node* getNewNode(struct sockaddr_in c)
     return temp_node;
 }
 
+// insert a node with given socket address to the head of list
+void insert_at_head(struct sockaddr_in c)
+{
+    node *newNode = getNewNode(c);
+
+    if(head==NULL)
+    {
+    	head=newNode;
+        tail=newNode;
+        return;
+    }
+
+    newNode->next = head;
+    head->previous = newNode; 
+    head = newNode; 
+}
+
+
+
 
 
 
