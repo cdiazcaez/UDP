@@ -88,6 +88,14 @@ int main(int argc, char* argv[])
 	servaddr.sin_family = AF_INET; // IPv4
 	servaddr.sin_addr.s_addr = INADDR_ANY;
 	servaddr.sin_port = htons(port);
+	
+	// Assign address to the unbound socket.
+	if ( bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)) < 0 )
+	{
+		perror("bind failed");
+		exit(EXIT_FAILURE);
+	}
+	
 
 
 
