@@ -161,7 +161,6 @@ int get_key()
     tv.tv_usec = tv.tv_sec = 0;
  
     FD_ZERO(&fs);
-    
     FD_SET(STDIN_FILENO, &fs);
     select(STDIN_FILENO + 1, &fs, 0, 0, &tv);
  
