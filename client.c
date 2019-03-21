@@ -54,4 +54,11 @@ int main(int argc, char* argv[])
         perror("Invalid port supplied");
         exit(EXIT_FAILURE);
     }
+    
+    // filling server information
+    memset(&servaddr, 0, sizeof(servaddr));
+    servaddr.sin_family = AF_INET;
+    servaddr.sin_port = htons(port);
+    servaddr.sin_addr.s_addr = INADDR_ANY;
+
 
