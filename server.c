@@ -26,3 +26,10 @@ typedef struct node
 
 // compare two socket address
 int sock_cmp(struct sockaddr_in a, struct sockaddr_in b);
+
+// Related LL functions
+node* getNewNode(struct sockaddr_in c);
+void insert_at_head(struct sockaddr_in c);
+node * find_node(struct sockaddr_in c);
+void delete_node(node *pos);
+
